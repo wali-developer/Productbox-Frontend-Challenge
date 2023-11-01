@@ -10,7 +10,7 @@ const AddItemForm = ({ onAddItem, loading }) => {
   const [payload, setPayload] = useState({
     name: "",
     price: "",
-    // img: "",
+    img: "",
   });
 
   const handleChange = (event) => {
@@ -35,10 +35,14 @@ const AddItemForm = ({ onAddItem, loading }) => {
 
     setErrors(err);
     if (!err) {
-      onAddItem(payload);
+      onAddItem({
+        name: payload?.name,
+        price: payload?.price,
+      });
       setPayload({
         name: "",
         price: "",
+        img: "",
       });
     }
   };

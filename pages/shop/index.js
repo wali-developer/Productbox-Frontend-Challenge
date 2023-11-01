@@ -50,6 +50,11 @@ const Shop = () => {
             <Search onSearch={(query) => handleSearch(query)} />
           </div>
           <ItemsList items={items} />
+          {items?.length == 0 && !loading && (
+            <h1 className="text-center font-semibold text-base md:text-2xl my-20 text-AdmiPrimary">
+              No item found in the shop !
+            </h1>
+          )}
         </div>
       </main>
       {loading && <Loader />}
